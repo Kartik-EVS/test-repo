@@ -1,0 +1,19 @@
+config {
+  type: "table",
+  schema: "dataform_poc_kg",
+  name: "student_new",
+  description: "A table with student information, including their age.",
+  columns: {
+    id: "The student\'s ID.",
+    name: "The student\'s name.",
+    gender: "The student\'s gender.",
+    dob: "The student\'s date of birth.",
+    age: "The student\'s age in years."
+  }
+}
+
+SELECT
+  *,
+  DATE_DIFF(CURRENT_DATE(), dob, YEAR) AS age
+FROM
+  ${ref("student_external")}

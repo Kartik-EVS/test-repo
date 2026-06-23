@@ -1,0 +1,17 @@
+config {
+  type: "operations",
+  schema: "dataform_poc_kg",
+  hasOutput: true
+}
+
+CREATE OR REPLACE EXTERNAL TABLE ${self()}(
+  id INTEGER,
+  name STRING,
+  gender STRING,
+  dob DATE
+)
+OPTIONS (
+  format = "CSV",
+  uris = ["gs://sa_de_agent_demo/student.csv"],
+  skip_leading_rows = 1
+)
