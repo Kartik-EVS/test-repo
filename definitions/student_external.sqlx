@@ -13,5 +13,5 @@ CREATE OR REPLACE EXTERNAL TABLE ${self()}(
 OPTIONS (
   format = "CSV",
   uris = ["gs://sa_de_agent_demo/student.csv"],
-  skip_leading_rows = 1
+  skip_leading_rows = 1 
 )
